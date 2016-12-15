@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link ,hashHistory} from 'react-router';
+import { Router, Route ,hashHistory} from 'react-router';
 import ZhihuStories from './stories';
 import ZhihuStory from './story';
 import Loading from './loading';
 import Tpl from './tpl';
+import Api from './api';
 import $ from 'jquery';
 
 
@@ -12,10 +13,12 @@ class ZhihuApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {stories: []};
+    console.log('constructor');
   }
 
   componentDidMount() {
-        $.get('https://crossorigin.me/http://news-at.zhihu.com/api/4/news/latest', (result) => {
+  	console.log(Api.getList());
+        $.get(Api.getList(), (result) => {
             //console.log(result);
             const data = result;
             if (data) {

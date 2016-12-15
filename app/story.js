@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Loading from './loading';
+import Api from './api';
 import Tpl from './tpl';
 class ZhihuStory extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class ZhihuStory extends React.Component {
   }
 
   componentDidMount() {
-        $.get('https://crossorigin.me/http://news-at.zhihu.com/api/4/news/'+this.props.params.id, (result) => {
+        $.get(Api.getStory()+this.props.params.id, (result) => {
            	result.body=result.body.replace(/<img/g,'<ximg');
             //console.log(result.body);
             this.setState(result);
