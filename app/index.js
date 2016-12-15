@@ -6,19 +6,18 @@ import ZhihuStory from './story';
 import Loading from './loading';
 import Tpl from './tpl';
 import Api from './api';
-import $ from 'jquery';
+import Util from './util';
 
-
+var testobject={};
 class ZhihuApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {stories: []};
-    console.log('constructor');
+    //console.log(store);
   }
 
   componentDidMount() {
-  	console.log(Api.getList());
-        $.get(Api.getList(), (result) => {
+        Util.storeGet(Api.getList(), (result) => {
             //console.log(result);
             const data = result;
             if (data) {

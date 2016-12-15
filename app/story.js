@@ -1,8 +1,8 @@
 import React from 'react';
-import $ from 'jquery';
 import Loading from './loading';
 import Api from './api';
 import Tpl from './tpl';
+import Util from './util';
 class ZhihuStory extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ class ZhihuStory extends React.Component {
   }
 
   componentDidMount() {
-        $.get(Api.getStory()+this.props.params.id, (result) => {
+        Util.storeGet(Api.getStory()+this.props.params.id, (result) => {
            	result.body=result.body.replace(/<img/g,'<ximg');
             //console.log(result.body);
             this.setState(result);
