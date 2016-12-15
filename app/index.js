@@ -7,8 +7,6 @@ import Loading from './loading';
 import Tpl from './tpl';
 import Api from './api';
 import Util from './util';
-
-var testobject={};
 class ZhihuApp extends React.Component {
   constructor(props) {
     super(props);
