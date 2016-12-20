@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageBoard from './messageboard'
 import { Link } from 'react-router';
 class Tpl extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class Tpl extends React.Component {
 		<div className="main-content-wrap" style={{paddingTop:'30px'}}>
       			{this.props.children}
 		</div>
+		<MessageBoard/>
 	</div>
 </div>
     );
